@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inicio</title>
-</head>
-<body>
-    @include('partials.navigations')
+{{-- @component('components.layouts') --}}
+<x-layouts.app
+    title="Home Tile"
+    meta-description="Home Page Description"
+    {{-- :sum=2+2 --}}
+    >
+
+    {{-- <x-slot name="title"> Home Title </x-slot> --}}
     <h1>Inicio</h1>
-</body>
-</html>
+</x-layouts.app>
+{{-- @endcomponent --}}
+
