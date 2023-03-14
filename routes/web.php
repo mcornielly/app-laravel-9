@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,11 +13,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// $posts = [
+//     ['title' => 'First Post'],
+//     ['title' => 'Second Post'],
+//     ['title' => 'Third Post'],
+//     ['title' => 'Fourth Post']
+// ];
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::view('/', 'Welcome')->name('home');
 Route::view('/contact', 'Contact')->name('contact');
-Route::view('/blog', 'Blog')->name('blog');
+Route::get('/blog', [PostController::class, 'index'])->name('blog');
+// Route::view('/blog', 'Blog', ['posts' => $posts])->name('blog');
 Route::view('/about', 'About')->name('about');
+
+// Route::get('/blog', function() {
+
+//     $posts = [
+//         ['title' => 'First Post'],
+//         ['title' => 'Second Post'],
+//         ['title' => 'Third Post'],
+//         ['title' => 'Fourth Post']
+//     ];
+
+//     return view('blog', ['posts' => $posts]);
+
+// })->name('blog');
