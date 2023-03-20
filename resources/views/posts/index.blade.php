@@ -3,11 +3,7 @@
     meta-description="Blog Page Description"
     >
 
-    @if (session('status'))
-        <div>
-            {{ session('status') }}
-        </div>
-    @endif
+    
 
     <h1>Blog</h1>
 
@@ -15,14 +11,24 @@
         <a href="{{ route('posts.create') }}">Crear Post</a>
     </h2>
     {{-- @dump($post); --}}
-    @foreach ($posts as $post)
-    {{-- @dump($post); --}}
-        <h2>
-            <a href="{{ route('posts.show', $post) }}">
-                {{ $post->title }}
-            </a>
-        </h2>
-    @endforeach
+    <div style="display: flex; align-items: baseline">
+        @foreach ($posts as $post)
+        {{-- @dump($post); --}}
+        <ul>
+            <li>
+                <a href="{{ route('posts.show', $post) }}">
+                    {{ $post->title }}
+                </a>&nbsp;
+                <a href="{{ route('posts.edit', $post) }}">Edit</a>
+            </li>
+        </ul>
+
+
+        {{-- <h2>
+            </h2> &nbsp;
+            <a href="#">Edit</a> --}}
+        @endforeach
+    </div>
 </x-layouts.app>
 
 

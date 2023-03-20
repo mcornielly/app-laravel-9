@@ -10,6 +10,9 @@
 </head>
 <body>
     <x-layouts.navigations />
+    @if (session('status'))
+        {{ session('status') }}
+    @endif
     {{-- <pre>{{ $sum }}</pre> --}}
     {{ $slot }}
 
