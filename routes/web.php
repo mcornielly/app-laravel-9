@@ -26,7 +26,10 @@ Route::get('/', function () {
 
 Route::view('/', 'Welcome')->name('home');
 Route::view('/contact', 'Contact')->name('contact');
-Route::get('/blog', [PostController::class, 'index'])->name('blog');
+Route::get('/blog', [PostController::class, 'index'])->name('posts.index');
+Route::get('/blog/crear', [PostController::class, 'create'])->name('posts.create');
+Route::post('/blog', [PostController::class, 'store'])->name('posts.store');
+Route::get('/blog/{post}', [PostController::class, 'show'])->name('posts.show');
 // Route::view('/blog', 'Blog', ['posts' => $posts])->name('blog');
 Route::view('/about', 'About')->name('about');
 

@@ -2,10 +2,26 @@
     title="Blog"
     meta-description="Blog Page Description"
     >
+
+    @if (session('status'))
+        <div>
+            {{ session('status') }}
+        </div>
+    @endif
+
     <h1>Blog</h1>
+
+    <h2>
+        <a href="{{ route('posts.create') }}">Crear Post</a>
+    </h2>
     {{-- @dump($post); --}}
     @foreach ($posts as $post)
-        <h1>{{ $post['title'] }}</h1>
+    {{-- @dump($post); --}}
+        <h2>
+            <a href="{{ route('posts.show', $post) }}">
+                {{ $post->title }}
+            </a>
+        </h2>
     @endforeach
 </x-layouts.app>
 
