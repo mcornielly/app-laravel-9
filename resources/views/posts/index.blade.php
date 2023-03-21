@@ -3,7 +3,7 @@
     meta-description="Blog Page Description"
     >
 
-    
+
 
     <h1>Blog</h1>
 
@@ -20,6 +20,11 @@
                     {{ $post->title }}
                 </a>&nbsp;
                 <a href="{{ route('posts.edit', $post) }}">Edit</a>
+                </a>&nbsp;
+                <form action="{{ route('posts.delete', $post) }}" method="post">
+                    @csrf @method('DELETE')
+                    <button type="submit">Eliminar</button>
+                </form>
             </li>
         </ul>
 
