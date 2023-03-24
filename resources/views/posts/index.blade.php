@@ -21,7 +21,7 @@
                 </a>&nbsp;
                 <a href="{{ route('posts.edit', $post) }}">Edit</a>
                 </a>&nbsp;
-                <form action="{{ route('posts.delete', $post) }}" method="post">
+                <form action="{{ route('posts.destroy', $post) }}" method="post">
                     @csrf @method('DELETE')
                     <button type="submit">Eliminar</button>
                 </form>
