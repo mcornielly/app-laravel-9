@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +45,14 @@ Route::resource('/blog', PostController::class, [
 
 
 Route::view('/about', 'About')->name('about');
+Route::view('/register', 'auth.register')->name('register');
+Route::post('/register', [RegisteredUserController::class, 'store'])->name('register');
+Route::get('/blog/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+
+
+Route::get('/login', function () {
+    return 'Login page';
+})->name('login');
 
 // Route::get('/blog', function() {
 
