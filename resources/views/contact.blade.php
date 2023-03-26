@@ -2,7 +2,7 @@
     title="Content"
     meta-description="Content Page Description"
     >
-    <h1>Content</h1>
+    <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Content</h1>
 </x-layouts.app>
 
 {{-- @extends('layouts.app')
