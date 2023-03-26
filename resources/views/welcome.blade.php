@@ -10,6 +10,12 @@
         Home..!!
     </h1>
 
+    @auth
+        <div class="text-white">
+            Authenticated User : {{ Auth::user() }};
+        </div>
+    @endauth
+
 </x-layouts.app>
 {{-- @endcomponent --}}
 

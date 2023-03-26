@@ -42,13 +42,34 @@
                     </div>
                 </div>
                 <div class="mx-auto">
-                    <div class="flex space-x-4">
-                        <!-- Active: 'text-sky-600 dark:text-white', Inactive 'text-slate-400' -->
-                        <a href="{{ route('register') }}"
-                            class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('register') ? 'text-sky-600 dark:text-white' : 'text-slate-400'}}">
-                            Register
-                        </a>
-                    </div>
+                    @guest
+                        <div class="flex space-x-4">
+                            <!-- Active: 'text-sky-600 dark:text-white', Inactive 'text-slate-400' -->
+                            <a href="{{ route('register') }}"
+                                class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('register') ? 'text-sky-600 dark:text-white' : 'text-slate-400'}}">
+                                Register
+                            </a>
+                            <!-- Active: 'text-sky-600 dark:text-white', Inactive 'text-slate-400' -->
+                            <a href="{{ route('login') }}"
+                                class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('login') ? 'text-sky-600 dark:text-white' : 'text-slate-400'}}">
+                                Login
+                            </a>
+                        </div>
+                    @endguest
+                    @auth
+                        <div class="flex space-x-4">
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                {{-- <button type="submit">Logout</button> --}}
+                                <a class="x-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark text-slate-400" href="#">{{ Auth::user()->email }}</a>
+                                <a href="{{ route('logout') }}"
+                                class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark text-slate-400"
+                                onclick="this.closest('form').submit()">
+                                Logout
+                            </a>
+                            </form>
+                        </div>
+                    @endauth
                 </div>
             </div>
         </div>
